@@ -13,3 +13,9 @@ function setup() {
 function draw() {
   background(220);
 }
+
+
+function gears(x,y,r,f){
+  
+
+}
