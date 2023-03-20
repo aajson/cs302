@@ -10,7 +10,7 @@ let allgear=[];
 let n=45;
 let s =1;
 let speed=1;
-angle = 0;
+let angle = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -26,7 +26,9 @@ function draw() {
   }
   
   
-  background(220);
+  background(74, 65, 42);
+  //74, 65, 42)
+  //array caller
   for (let gear of allgear) {
     
     gear.angle+=1;
@@ -37,6 +39,7 @@ function draw() {
   angle+=1;
   angle+=speed;
   gears(mouseX, mouseY,r,n,s,angle);
+  //direction contol
   if (keyIsDown(LEFT_ARROW)) {
     s = -1 ; 
     
@@ -45,6 +48,7 @@ function draw() {
     s = 1 ; 
     
   }
+  //speed control
   if (keyIsDown(UP_ARROW)) {
     speed += 0.05;
 
@@ -61,19 +65,26 @@ function draw() {
 
 
 function gears(x,y,r,n,s,angle){
-  //boundery 
+  //boundary 
   push();
   noStroke();
   ellipse(x,y,r*2,r*2);
   pop();
-  // iner gear
+  // rotation
   push();
   translate(x,y);
   rotate((angle)/s);
   angle+=1;
+  //inner gear
+  push();
+  fill(random(255),random(255),random(255));
   ellipse(0,0,r);
+  pop();
   // outer gear
+  push()
+  fill(random(255),random(255),random(255));
   outerGears(0,0,r,n);
+  pop();
   pop();
 }
 
@@ -88,7 +99,7 @@ function outerGears(x,y,r,n){
       arc(x,y,r*2,r*2,i,i+n/2); 
     
     }
-    //iner cog
+    //inner cog
     if (i<=360){ 
       arc(x,y,r*1.5,r*1.5,i-n/2,i);
     }
@@ -96,6 +107,7 @@ function outerGears(x,y,r,n){
   
 
 }
+//size change
 function mouseWheel(event){
   if (event.delta > 0){
     r += 25;
@@ -108,7 +120,7 @@ function mouseWheel(event){
 
 
 
-
+//aray bank
 function mousePressed(){
   let gear={
     x:mouseX,
