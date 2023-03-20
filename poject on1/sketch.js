@@ -8,7 +8,10 @@
 let r=15;
 let allgear=[];
 let n=45;
-let s =15;
+let s =1;
+let speed=1;
+angle = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noFill();
@@ -17,31 +20,57 @@ function setup() {
   
 
 function draw() {
-  background(220);
-  for (const gear of allgear) {
-    gears(gear.x,gear.y,gear.r,gear.n,gear.s);
-    
-    
-
-    
+  if (angle >= 360){
+    angle = 0;
 
   }
-  gears(mouseX, mouseY,r,n,s);
+  
+  
+  background(220);
+  for (let gear of allgear) {
+    
+    gear.angle+=1;
+    gear.angle+=gear.speed;
+    gears(gear.x,gear.y,gear.r,gear.n,gear.s,gear.angle);
+
+  }
+  angle+=1;
+  angle+=speed;
+  gears(mouseX, mouseY,r,n,s,angle);
   if (keyIsDown(LEFT_ARROW)) {
-    s -= 50; 
+    s = -1 ; 
+    
   }
   else if (keyIsDown(RIGHT_ARROW)) {
-    s += 50;
+    s = 1 ; 
+    
   }
+  if (keyIsDown(UP_ARROW)) {
+    speed += 0.05;
+
+    
+  }
+  else if (keyIsDown(DOWN_ARROW)) {
+    speed -= 0.05;
+    
+  }
+ //console.log(s);
+ //console.log(frameCount);
+ console.log(speed);
 }
 
 
-function gears(x,y,r,n,spin){
+function gears(x,y,r,n,s,angle){
+  //boundery 
+  push();
+  noStroke();
+  ellipse(x,y,r*2,r*2);
+  pop();
   // iner gear
   push();
   translate(x,y);
-  rotate(spin);
-  
+  rotate((angle)/s);
+  angle+=1;
   ellipse(0,0,r);
   // outer gear
   outerGears(0,0,r,n);
@@ -69,10 +98,10 @@ function outerGears(x,y,r,n){
 }
 function mouseWheel(event){
   if (event.delta > 0){
-    r += 50;
+    r += 25;
   }
   else if (event.delta < 0){
-    r -= 50;
+    r -= 25;
 
   }
 }
@@ -87,8 +116,11 @@ function mousePressed(){
     r:r,
     n:n,
     s:s,
+    speed:speed,
+    angle:angle,
 
   };
+  console.log(gear);
   allgear.push(gear);
 }
 
