@@ -11,7 +11,7 @@ let n=45;
 let s =1;
 let speed=1;
 let angle = 0;
-
+//setup and switching it to angle mode
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noFill();
@@ -25,9 +25,9 @@ function draw() {
 
   }
   
-  
+  // the 2012 "ugliest colour in the world" Pantone 448 C
   background(74, 65, 42);
-  //74, 65, 42)
+  
   //array caller
   for (let gear of allgear) {
     
@@ -60,7 +60,7 @@ function draw() {
   }
  //console.log(s);
  //console.log(frameCount);
- console.log(speed);
+ //console.log(speed);
 }
 
 
