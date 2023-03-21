@@ -1,9 +1,9 @@
-// Project Title
-// Your Name
-// Date
+// gears
+// Alexander Johnson 
+// 3/20/23
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+//  the use of the rotate function was not taught to the extent that it was used in the project.
 
 let r=15;
 let allgear=[];
