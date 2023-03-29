@@ -61,7 +61,9 @@
 // 17, 14, 8, 3, 10, 18, 13, 1, 4, 9, 11, 2, 12, 5, 16, 7, 15, 6
 // 18, 6, 14, 7, 15, 2, 11, 13, 5, 16, 12, 8, 3, 1, 9, 4, 17, 10
 // 18, 9, 2, 13, 6, 12, 16, 10, 7, 3, 15, 1, 14, 4, 11, 5, 8, 17
+////////////////////////////////////////////////////////////////
 
+let skeleton = [];
 
 
 function setup() {
@@ -71,3 +73,49 @@ function setup() {
 function draw() {
   background(220);
 }
+
+
+
+function board() {
+  for ( i of skeleton) {
+    
+  } {
+    rect(skeleton[i].x, skeleton[i].y, skeleton[i].w, skeleton[i].h);
+  }
+}
+
+function creayteboard() {
+  for ( let i = 0; i < 19; i++ ) {
+      if (i >= 0 && i <7){
+        let k= (i-1);
+
+        let j= 1;
+      }
+      else if (i >= 7 && i <11){
+        let k=5;
+
+        let j=(i-7);  
+
+      }
+      else if (i >=11 && i <16 ){
+        let k=(6-(i-11))
+        let j=4
+      }
+      else if (i >=16 && i <19){
+        let k=1
+        let j=(5-(i-16))
+
+
+      } 
+
+
+    let tempskell={
+      x: ((windowWidth/6)*k),
+      y: ((windowHeight/5)*j),
+      w: (windowWidth/6),
+      h: (windowHeight/5)
+    }
+
+
+
+
