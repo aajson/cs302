@@ -63,9 +63,18 @@
 // 18, 9, 2, 13, 6, 12, 16, 10, 7, 3, 15, 1, 14, 4, 11, 5, 8, 17
 ////////////////////////////////////////////////////////////////
 
-let skeleton = [];
+let rows=5;
+let columns=6;
+//let skeleton = [];
+let grid = [
+  [1,2,3,4,5,6],
+  [18,0,0,0,0,7],
+  [17,0,0,0,0,8],
+  [16,0,0,0,0,9],
+  [15,14,13,12,11,10]]; 
+  
 
-
+  
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -73,49 +82,53 @@ function setup() {
 function draw() {
   background(220);
 }
+function displayGrid(){
+ 
 
-
-
-function board() {
-  for ( i of skeleton) {
-    
-  } {
-    rect(skeleton[i].x, skeleton[i].y, skeleton[i].w, skeleton[i].h);
-  }
 }
 
-function creayteboard() {
-  for ( let i = 0; i < 19; i++ ) {
-      if (i >= 0 && i <7){
-        let k= (i-1);
-
-        let j= 1;
-      }
-      else if (i >= 7 && i <11){
-        let k=5;
-
-        let j=(i-7);  
-
-      }
-      else if (i >=11 && i <16 ){
-        let k=(6-(i-11))
-        let j=4
-      }
-      else if (i >=16 && i <19){
-        let k=1
-        let j=(5-(i-16))
-
-
-      } 
-
-
-    let tempskell={
-      x: ((windowWidth/6)*k),
-      y: ((windowHeight/5)*j),
-      w: (windowWidth/6),
-      h: (windowHeight/5)
-    }
 
 
 
 
+// function board() {
+//   for ( let tempskell  of skeleton) { 
+   
+//     rect(skeleton[tempskell].x, skeleton[tempskell].y, skeleton[tempskell].w, skeleton[tempskell].h);
+//   }
+// }
+
+// function creayteboard() {
+//   for ( let i = 0; i < 19; i++ ) {
+//     if (i >= 0 && i <7){
+//       let k= i-1;
+
+//       let j= 1;
+//     }
+//     else if (i >= 7 && i <11){
+//       let k=5;
+
+//       let j=i-7;  
+
+//     }
+//     else if (i >=11 && i <16 ){
+//       let k=6-(i-11);
+//       let j=4;
+//     }
+//     else if (i >=16 && i <19){
+//       let k=1;
+//       let j=5-(i-16);
+
+
+//     } 
+
+
+//     let tempskell={
+//       x: ((windowWidth/6)*k),
+//       y: ((windowHeight/5)*j),
+//       w: (windowWidth/6),
+//       h: (windowHeight/5)
+//     };
+//     skeleton.push(tempskell);
+//   }
+}
