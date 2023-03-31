@@ -63,8 +63,10 @@
 // 18, 9, 2, 13, 6, 12, 16, 10, 7, 3, 15, 1, 14, 4, 11, 5, 8, 17
 ////////////////////////////////////////////////////////////////
 
-let rows=5;
-let columns=6;
+let rows=6;
+let columns=5;
+let cellSize;
+
 //let skeleton = [];
 let grid = [
   [1,2,3,4,5,6],
@@ -76,16 +78,35 @@ let grid = [
 
   
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  
+ createCanvas(windowWidth, windowHeight);
+  if (width < height) {
+    cellSize = width;
+  }
+  else {
+    cellSize = height;
+
+  
+
+  }
 }
 
 function draw() {
   background(220);
+  displayGrid();
 }
-function displayGrid(){
- 
 
+
+function displayGrid() {
+  for (let x = 0; x < rows; x++) {
+    for (let y =0; y < columns; y++) {
+      if (grid[y][x]>0) {
+        rect((cellSize/6) * x, (cellSize/5) * y, cellSize/6,cellSize/5);
+      }
+    }
+  } 
 }
+
 
 
 
@@ -131,4 +152,4 @@ function displayGrid(){
 //     };
 //     skeleton.push(tempskell);
 //   }
-}
+//}
